@@ -3,8 +3,8 @@ import electricalIcon from '../../images/electricalIcon.png'
 import sweepIcon from '../../images/sweepIcon.png'
 import tapIcon from '../../images/tapIcon.png'
 import strollerIcon from '../../images/strollerIcon.png'
-import plumberImg from '../../images/plumberImg.jpg'
 import './Home.css'
+// eslint-disable-next-line
 
 export default function Services() {
   return (
@@ -55,7 +55,7 @@ export default function Services() {
                 <rect width="100%" height="100%" fill="#4297A0" />
               </svg>
             </div>
-            <h2 className="fw-bold">babysitting </h2>
+            <h2 className="fw-bold">Babysitting </h2>
             <p>Installs and repairs electrical wiring, systems, and fixtures in buildings. Installs conduits and pipes to house electrical wires and cables. Ensures piping complies with electrical codes. Installs circuit breakers and other electrical hardware and connects wiring to them.</p>
             <p><a className="btn text-white" style={{backgroundColor: "#4297A0"}} href="#">See babysitters »</a></p>
           </div>

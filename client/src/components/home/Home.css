@@ -1,3 +1,8 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 .service {
   margin: 2.5rem 0 0 2.5rem;
   opacity: 80%;

@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import homeIcon from "../../images/homeIcon.png";
 import servicesIcon from "../../images/servicesIcon.png";
 import loginIcon from "../../images/loginIcon.png";
 import signupIcon from "../../images/signupIcon.png";
 import postsIcon from "../../images/postsIcon.png";
 import { Link } from "react-router-dom";
-// import Signup from './Signup';
-// import Login from './Login';
+import Signup from "../Signup";
+import Login from "../Login";
 
 function Header() {
+  const [signUp, setsignUp] = useState(false);
+  const [logIn, setlogIn] = useState(false);
+
+  const handleHome = (signUp, logIn) => {
+    setsignUp(false);
+    setlogIn(false);
+  };
+
+  const handleSignup = (signUp) => {
+    setsignUp(!signUp);
+    setlogIn(false);
+  };
+
+  const handleLogin = (logIn) => {
+    setlogIn(!logIn);
+    setsignUp(false);
+  };
+
   return (
     <div>
       <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top position-relative">
@@ -49,6 +67,7 @@ function Header() {
                     className="nav-link active"
                     data-bs-toggle="offcanvas"
                     aria-current="page"
+                    onClick={() => handleHome(signUp, logIn)}
                   >
                     <img
                       src={homeIcon}
@@ -60,11 +79,7 @@ function Header() {
                   </a>
                 </li>
                 <li className="nav-item px-1">
-                  <Link
-                    to="/posts"
-                    className="nav-link link-dark"
-                    data-bs-toggle="offcanvas"
-                  >
+                  <Link to="/posts" className="nav-link link-dark">
                     <img
                       src={postsIcon}
                       className="me-2 mb-1"
@@ -94,6 +109,7 @@ function Header() {
                     href="#"
                     className="nav-link link-dark"
                     data-bs-toggle="offcanvas"
+                    onClick={() => handleLogin(logIn)}
                   >
                     <img
                       src={loginIcon}
@@ -109,6 +125,7 @@ function Header() {
                     href="#"
                     className="nav-link link-dark"
                     data-bs-toggle="offcanvas"
+                    onClick={() => handleSignup(signUp)}
                   >
                     <img
                       src={signupIcon}
@@ -124,6 +141,8 @@ function Header() {
           </div>
         </div>
       </nav>
+      {signUp && <Signup />}
+      {logIn && <Login />}
     </div>
   );
 }
